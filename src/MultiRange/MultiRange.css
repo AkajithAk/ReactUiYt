@@ -1,0 +1,31 @@
+.range{
+    margin-top: 40px;
+    text-align: center;
+}
+.multi-range-slider {
+    display: flex;
+    position: relative;
+    border: none !important;
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-shadow: none !important;
+    flex-direction: column;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.multi-range-slider .thumb .caption * {
+    position: absolute;
+    min-width: 30px;
+    height: 30px;
+    font-size: 75%;
+    text-align: center;
+    line-height: 30px;
+    background-color: rgb(128, 128, 23) !important;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0px 0px 5px black;
+    padding: 0px 5px;
+    white-space: nowrap;
+}
