@@ -1,0 +1,23 @@
+.Space{
+    margin:30px 0;
+    height: 30px;
+    width: 150px;
+}
+.componantA{
+    background-color: grey;
+    color: white;
+    height: 50vh;
+    font-size: 32px;
+}
+.componantB{
+    background-color: rgb(65, 171, 20);
+    color: white;
+    height: 50vh;
+    font-size: 32px;
+}
+.componantC{
+    background-color: rgb(138, 20, 167);
+    color: white;
+    height: 50vh;
+    font-size: 32px;
+}
