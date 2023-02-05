@@ -4,25 +4,29 @@ import './ReactTable.css';
 function ReactTable(){
     const data=[
         {
-        fname:"aaa",
-        lname:"bbb"
+        fname:"Youtube",
+        lname:"Link",
+        link:"https://www.youtube.com/channel/UCHxAIz7g4fu7UbEY1NuWGng"
     },
         {
-        fname:"ccc",
-        lname:"ddd"
+        fname:"Instagram",
+        lname:"Link",
+        link:"https://www.instagram.com/coding__comics/"
     },
         {
-        fname:"eee",
-        lname:"fff"
+        fname:"GitHub",
+        lname:"Link",
+        link:"https://github.com/AkajithAk"
     },
 ]
+
     return(
         <div>
            <table>
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Name</th>
+                    <th>Link</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +34,7 @@ function ReactTable(){
                    data.map((val,i)=>
                    <tr key={i}>
                     <td>{val.fname}</td>
-                    <td>{val.lname}</td>
+                    <td><a href={val.link} target="_blank" >{val.lname}</a></td>
                    </tr>
                    ) 
                 }
