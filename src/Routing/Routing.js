@@ -4,14 +4,19 @@ import Component1 from "./Compenent1";
 import Component2 from "./Compenent2";
 
 function Routing(){
+
+    const id = 3;
+    const value = `/page/${id}`
+
+    
     return(
         <BrowserRouter>
-        <Link to="">Home</Link><br/>
-        <Link to="page1">Page1</Link>
+        <Link to="">Page one</Link><br/>
+        <Link to={value}>Page two</Link>
         <div>
             <Routes>
                 <Route path="/" element={<Component1/>} />
-                <Route path="/page1" element={<Component2/>} />
+                <Route path="/page/:id" element={<Component2/>} />
             </Routes>
         </div>
         </BrowserRouter>

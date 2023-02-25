@@ -1,9 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function Component2(){
+    const param = useParams()
+    
+    console.log(param)
     return(
         <div>
-            Component2
+            Component two {param.id}
         </div>
     )
 }
