@@ -12,7 +12,7 @@ function Parent(){
         <>
             <h1>Parent - {val}</h1>
             <button onClick={handleClick}>Increament</button>
-            <Child number="{val}" />
+            <Child number="{val}"/>
         </>
     )
 }
