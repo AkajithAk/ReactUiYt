@@ -1,0 +1,10 @@
+div{
+    margin: 30px;
+}
+.download{
+    text-decoration: none;
+    color: white;
+    background: rgb(129, 125, 8);
+    padding: 10px;
+    border-radius: 8px;
+}
