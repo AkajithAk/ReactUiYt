@@ -9,8 +9,8 @@ function FirebaseFirestore(){
     const [id,setId] =useState('')
 
     const [show,setShow] =useState(false)
-
     
+
 
     const [val,setVal] =useState([])
 
