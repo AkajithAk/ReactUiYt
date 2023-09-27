@@ -1,0 +1,15 @@
+.routingBody{
+    display: flex;
+    justify-content: center;
+}
+.cards{
+    height: 60px;
+    width: 100px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+}
