@@ -1,0 +1,49 @@
+.menu{
+    background: rgb(28, 55, 129);
+    height: 80px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+}
+img{
+    height: 40px;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+li{
+    list-style: none;
+    color: white;
+    cursor: pointer;
+}
+.imgC{
+    text-align: center;
+}
+.active{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width:800px) {
+    .main{
+        position: absolute;
+        top: 0;
+    }
+   .menu{
+        width: 250px;
+        height: 100vh;
+        display: block;
+        padding-top: 30px;
+   }
+   ul{
+        display: block;
+   }
+   li{
+    padding: 10px;
+   }
+   span{
+    position: absolute;
+    right: 5px;
+    color: white;
+   }
+}
