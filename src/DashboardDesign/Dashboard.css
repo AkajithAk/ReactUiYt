@@ -1,0 +1,154 @@
+/* #c345fd
+#2fc5ff
+#04f6cd  */
+
+.dContainer{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    height: 100vh;
+}
+.dBody{
+    background: rgb(214, 214, 214);
+}
+.dsideCenter{
+    text-align: center;
+}
+.dLogo{
+    margin: 25px 0;
+    font-size: 22px;
+    font-weight: 800;
+}
+.dMenu{
+    margin: 15px 0;
+    padding: 5px 0;
+}
+.dActive{
+    margin: 8px;
+    background: rgb(214, 214, 214);
+    border-radius: 5px;
+}
+.dHeader{
+    height: 10vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.dUser{
+    margin-right: 15px;
+    font-size: 19px;
+    font-weight: 700;
+}
+.dInnerBodyContainer{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    /* background: white; */
+    height: 86vh;
+    margin: 10px;
+}
+.dContainerOne{
+    width: 99%;
+    /* background: white; */
+}
+.dContainerTwo{
+    width: 99%;
+    background: white;
+}
+.dCardContainer{
+    display: grid;
+    grid-template-columns: repeat(5,21%);
+    margin: 10px;
+}
+.dCard{
+    height: 125px;
+    width: 125px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+.dCardSpace{
+    margin-left: 10px;
+}
+.dCard .dName{
+    font-weight: 700;
+    color: white;
+}
+.dCard span{
+    font-weight: 700;
+}
+.dCard0{
+    background: #c345fd;
+}
+.dCard1{
+    background: #2fc5ff;
+}
+.dCard2{
+    background: #04f6cd;
+}
+.dCard3{
+    background: #b7ff00;
+}
+.dCard4{
+    background: #ff5100;
+}
+.dCircleOne{
+    position: absolute;
+    right: -26px;
+    bottom: -44px;
+    height: 100px;
+    width: 100px;
+    background: rgba(255, 255, 255, 0.623);
+    border-radius: 50px;
+}
+.dCircleTwo{
+    position: absolute;
+    right: -56px;
+    top: 20px;
+    height: 100px;
+    width: 100px;
+    background: rgba(255, 255, 255, 0.623);
+    border-radius: 50px;
+}
+.dSubContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.dSubOne{
+    background: white;
+    height: 62vh;
+    width: 98%;
+    border-radius: 5px;
+}
+.dSubTwo{
+    background: white;
+    height: 62vh;
+    width: 98%;
+    border-radius: 5px;
+}
+.dSubInside{
+    margin: 10px;
+}
+.dSubTitle{
+    font-weight: 800;
+}
+.dSubListScroll{
+    height: 52vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.dSubListScrollTwo{
+    height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.dSubList{
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+    text-align: center;
+    border: 2px solid rgb(214, 214, 214);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
