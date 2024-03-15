@@ -1,0 +1,31 @@
+.mainContainer{
+    text-align: center;
+}
+.bg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(18, 19, 18, 0.338);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup{
+    height: 200px;
+    width: 400px;
+    background: white;
+    position: relative;
+    border-radius: 5px;
+}
+.close{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    cursor: pointer;
+}
+.title{
+    font-size: 17px;
+    font-weight: 700;
+}
