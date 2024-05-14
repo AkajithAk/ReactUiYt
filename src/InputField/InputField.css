@@ -1,0 +1,39 @@
+*{
+    margin: 20px;
+}
+.main{
+    position: relative;
+}
+input{
+    height: 30px;
+    width: 200px;
+}
+span{
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    width: 50px;
+    background: white;
+    text-align: center;
+    pointer-events: none;
+    transition: .3s ease all;
+}
+
+input:focus + span{
+    position: absolute;
+    left: 2px;
+    top: -9px;
+    width: 50px;
+    background: white;
+    text-align: center;
+    transition: .3s ease all;
+}
+
+.fill{
+    position: absolute;
+    left: 2px;
+    top: -9px;
+    width: 50px;
+    background: white;
+    text-align: center;
+}
