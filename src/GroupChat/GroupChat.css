@@ -1,0 +1,36 @@
+.message{
+    height: 80vh;
+    overflow-y: auto;
+}
+.sender{
+    height: 20vh;
+    background: rgb(206, 205, 205);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sender input {
+   height: 30px;
+   width: 60%; 
+}
+.sender button {
+   height: 36px;
+   width: 150px; 
+}
+.right{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+.left{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+.container{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0px 10px 10px 10px;
+    background: rgb(198, 196, 196);
+}
