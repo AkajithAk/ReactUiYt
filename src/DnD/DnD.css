@@ -1,0 +1,12 @@
+.name-list {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  .name-item {
+    padding: 8px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    cursor: move;
+    text-align: center;
+  }
