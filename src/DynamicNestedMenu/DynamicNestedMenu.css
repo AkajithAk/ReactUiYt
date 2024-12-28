@@ -1,0 +1,34 @@
+.dMenu{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(14, 108, 102);
+    height: 4rem;
+    align-items: center;
+    color: white;
+}
+.logo{
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.dSubChild{
+    display: none;
+}
+.dChild:hover{
+    color: black;
+    cursor: pointer;
+}
+.dChild:hover .dSubChild{
+    display: block;
+    position: absolute;
+}
+
+.dSubChild div{
+    height: 1.5rem;
+    background-color: rgb(99, 130, 128);
+    width: 4rem;
+    padding: .5rem;
+    color: white;
+}
+.dSubChild div:hover{
+    color: black;
+}
