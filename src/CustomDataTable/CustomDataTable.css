@@ -1,0 +1,12 @@
+.colRow{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.colRow div{
+    border: .1rem solid;
+    padding: .3rem;
+    text-align: center;
+}
+.colRow .title{
+    background-color: grey;
+}
