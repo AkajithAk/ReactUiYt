@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { database } from './FirebaseConfig'
 
@@ -9,12 +9,12 @@ function NewForm(props) {
 
     const userRef = collection(database,props.user.uid)
 
+    const getData = async()=>{
+        const userData = await getDocs(userRef)
+        const value = userData.docs.map(val=>({id:val.id,...val.data()}))
+        setData(value)
+    }
     useEffect(()=>{
-        const getData = async()=>{
-            const userData = await getDocs(userRef)
-            const value = userData.docs.map(val=>({id:val.id,...val.data()}))
-            setData(value)
-        }
         getData()
     },[inputData])
 
@@ -52,6 +52,16 @@ function NewForm(props) {
         setEditId(val.id)
         setInputData({name:val.name,age:val.age})
     }
+
+    const handleDelete =async(id)=>{
+        const deleteRef = doc(database,props.user.uid,id)
+        try {
+            await deleteDoc(deleteRef)
+            getData()
+        } catch (error) {
+            console.log(error)
+        }
+    }
   return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -64,6 +74,7 @@ function NewForm(props) {
                 <h1>{value.name}</h1>
                 <h1>{value.age}</h1>
                 <button onClick={()=>handleEdit(value)}>Edit</button>
+                <button onClick={()=>handleDelete(value.id)}>Delete</button>
             </div>)
         }
     </div>
