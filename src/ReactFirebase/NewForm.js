@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { database } from './FirebaseConfig'
 
@@ -10,7 +10,8 @@ function NewForm(props) {
     const userRef = collection(database,props.user.uid)
 
     const getData = async()=>{
-        const userData = await getDocs(userRef)
+        const que = query(userRef,orderBy('created','asc'))
+        const userData = await getDocs(que)
         const value = userData.docs.map(val=>({id:val.id,...val.data()}))
         setData(value)
     }
