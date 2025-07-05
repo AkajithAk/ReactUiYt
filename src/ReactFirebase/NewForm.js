@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { database } from './FirebaseConfig'
+import { database, storage } from './FirebaseConfig'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
 function NewForm(props) {
     const [inputData,setInputData] = useState({name:"",age:""})
@@ -25,9 +26,17 @@ function NewForm(props) {
     const handleSubmit = async(e) =>{
         e.preventDefault()
 
+        const img = e.target.image.files[0]
+        const id = crypto.randomUUID() 
+        const imgRef = ref(storage,`${props.user.uid}/${id}`)
+        await uploadBytes(imgRef,img)
+        const imgUrl = await getDownloadURL(imgRef)
+
+
         const data = {
             name:e.target.name.value,
             age:e.target.age.value,
+            img: imgUrl,
             created: new Date()
         }
         if(editId){
@@ -47,6 +56,7 @@ function NewForm(props) {
         }
         setInputData({name:"",age:""})
         setEditId(null)
+        e.target.image.value = ''
     }
 
     const handleEdit =(val)=>{
@@ -63,15 +73,19 @@ function NewForm(props) {
             console.log(error)
         }
     }
+
+    console.log(data,"data")
   return (
     <div>
         <form onSubmit={handleSubmit}>
             <input name='name' value={inputData.name} onChange={(e)=>setInputData({...inputData,name:e.target.value})} />
             <input name='age' value={inputData.age} onChange={(e)=>setInputData({...inputData,age:e.target.value})}/>
+            <input name='image' type='file' />
             <button>{editId?"Update":"Add"}</button>
         </form>
         {
             data.map(value=><div>
+                <img src={value.img} height="50"/>
                 <h1>{value.name}</h1>
                 <h1>{value.age}</h1>
                 <button onClick={()=>handleEdit(value)}>Edit</button>
