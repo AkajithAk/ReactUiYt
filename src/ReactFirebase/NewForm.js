@@ -20,28 +20,27 @@ function NewForm(props) {
         getData()
     },[inputData])
 
-
-    console.log(inputData,"datadatadata")
-
     const handleSubmit = async(e) =>{
         e.preventDefault()
 
         const img = e.target.image.files[0]
 
         let imgUrl
+
         if(img){
             const id = crypto.randomUUID() 
             const imgRef = ref(storage,`${props.user.uid}/${id}`)
             await uploadBytes(imgRef,img)
             imgUrl = await getDownloadURL(imgRef)
 
-            // delete old image
-            const deleteRef = ref(storage,inputData.img) 
-            await deleteObject(deleteRef)
+            // delete previous image
+            if(inputData.img){
+                const deleteRef = ref(storage,inputData.img)
+                await deleteObject(deleteRef)
+            }
         }else{
             imgUrl = inputData.img
         }
-
 
         const data = {
             name:e.target.name.value,
@@ -85,7 +84,6 @@ function NewForm(props) {
         }
     }
 
-    console.log(data,"data")
   return (
     <div>
         <form onSubmit={handleSubmit}>
