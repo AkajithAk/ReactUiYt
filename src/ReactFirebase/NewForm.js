@@ -1,10 +1,10 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { database, storage } from './FirebaseConfig'
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
 function NewForm(props) {
-    const [inputData,setInputData] = useState({name:"",age:""})
+    const [inputData,setInputData] = useState({name:"",age:"",img:""})
     const [editId,setEditId] = useState(null)
     const [data,setData] = useState([])
 
@@ -27,10 +27,20 @@ function NewForm(props) {
         e.preventDefault()
 
         const img = e.target.image.files[0]
-        const id = crypto.randomUUID() 
-        const imgRef = ref(storage,`${props.user.uid}/${id}`)
-        await uploadBytes(imgRef,img)
-        const imgUrl = await getDownloadURL(imgRef)
+
+        let imgUrl
+        if(img){
+            const id = crypto.randomUUID() 
+            const imgRef = ref(storage,`${props.user.uid}/${id}`)
+            await uploadBytes(imgRef,img)
+            imgUrl = await getDownloadURL(imgRef)
+
+            // delete old image
+            const deleteRef = ref(storage,inputData.img) 
+            await deleteObject(deleteRef)
+        }else{
+            imgUrl = inputData.img
+        }
 
 
         const data = {
@@ -60,8 +70,9 @@ function NewForm(props) {
     }
 
     const handleEdit =(val)=>{
+        console.log(val,"val")
         setEditId(val.id)
-        setInputData({name:val.name,age:val.age})
+        setInputData({name:val.name,age:val.age,img:val.img})
     }
 
     const handleDelete =async(id)=>{
