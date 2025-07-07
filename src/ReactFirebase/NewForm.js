@@ -74,10 +74,12 @@ function NewForm(props) {
         setInputData({name:val.name,age:val.age,img:val.img})
     }
 
-    const handleDelete =async(id)=>{
-        const deleteRef = doc(database,props.user.uid,id)
+    const handleDelete =async(val)=>{
+        const deleteRef = doc(database,props.user.uid,val.id)
+        const deleteImgRef = ref(storage,val.img)
         try {
             await deleteDoc(deleteRef)
+            await deleteObject(deleteImgRef)
             getData()
         } catch (error) {
             console.log(error)
@@ -98,7 +100,7 @@ function NewForm(props) {
                 <h1>{value.name}</h1>
                 <h1>{value.age}</h1>
                 <button onClick={()=>handleEdit(value)}>Edit</button>
-                <button onClick={()=>handleDelete(value.id)}>Delete</button>
+                <button onClick={()=>handleDelete(value)}>Delete</button>
             </div>)
         }
     </div>
